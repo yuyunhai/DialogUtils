@@ -4,6 +4,7 @@ package com.builde.mql.dialogutils;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.builde.mql.dialogutils.dialog.AlertDialog;
 
@@ -19,25 +20,25 @@ public class MainActivity extends AppCompatActivity {
     }
     public void createOwnerDialog(){
         final AlertDialog dialog= new AlertDialog.Builder(this)
-                .setContentView(R.layout.detail_comment_dialog)
+                .setContentView(R.layout.my_dialog)
                 .setText(R.id.tv_title,"这是标题")
                 .setCancelable(true)
                 .addDefaultAnimation()
                 .show();
-//        dialog.setOnClickListener(R.id.btn_cancel, new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this,"取消",Toast.LENGTH_SHORT).show();
-//                dialog.cancel();
-//            }
-//        });
-//        dialog.setOnClickListener(R.id.btn_sure, new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
-//                dialog.cancel();
-//            }
-//        });
+        dialog.setOnClickListener(R.id.btn_cancel, new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"取消",Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+            }
+        });
+        dialog.setOnClickListener(R.id.btn_sure, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+            }
+        });
     }
     public void createNativeDialog(){
         //创建Builder
